@@ -10,7 +10,7 @@
 /**
  * @returns {string[]}
  */
-function readList() { }
+function readList() {}
 
 
 // あらかじめ作成しておいたリストから使う単語を選別
@@ -19,7 +19,7 @@ function readList() { }
  * @param {string[]} wordList 
  * @returns {string[]}
  */
-function createQueryWords(wordList) { }
+function createQueryWords(wordList) {}
 
 
 // wordでクエリー検索
@@ -29,7 +29,14 @@ function createQueryWords(wordList) { }
  * @param {string} word 
  * @returns {Promise<Item[]>}
  */
-async function querySearch(word) { }
+async function querySearch(word) {
+    const items = await requestQueryNewsList(word)
+    return items.map(item => ({
+        title: item.title,
+        link: item.link,
+        imageUrl: null
+    }))
+}
 
 
 // それぞれの単語についての記事配列を一つの配列にする。
@@ -39,7 +46,10 @@ async function querySearch(word) { }
  * @param {Item[][]} articlesList 
  * @returns {Item[]}
  */
-function mixArticlesList(articlesList) { }
+function mixArticlesList(articlesList) {
+    console.debug({ articlesList })
+    return [].concat(...articlesList)
+}
 
 
 // 一つの配列を返す。{ title:string , link:string } []
@@ -48,4 +58,13 @@ function mixArticlesList(articlesList) { }
  * @param {Item[]} articles 
  * @returns {Item[]}
  */
-function shuffleArticles(articles) { }
+function shuffleArticles(articles) {
+    const newArray = [];
+    while (articles.length > 0) {
+        n = articles.length;
+        k = Math.floor(Math.random() * n);
+        newArray.push(articles[k]);
+        articles.splice(k, 1);
+    }
+    return newArray
+}
