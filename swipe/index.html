@@ -1,0 +1,32 @@
+<html>
+
+<body>
+    <button onclick="clicked()"></button>
+    <div>
+        <div id="display"></div>
+    </div>
+    <script>
+        count = 0
+
+        function getList() {
+            const articlesString = localStorage.getItem('Articles')
+            const articles = JSON.parse(articlesString)
+            return articles
+        }
+        const list = getList()
+        console.debug({
+            list
+        })
+
+        function clicked() {
+            count++;
+            if (count >= list.length) {
+                return
+            }
+            const display = document.getElementById('display')
+            display.innerText = list[count].title
+        }
+    </script>
+</body>
+
+</html>
