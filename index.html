@@ -1,37 +1,43 @@
 <html>
+  <head> </head>
 
-<head>
-</head>
-
-<body>
+  <body>
     <script src="index.js"></script>
     <script src="api.js"></script>
-    <div id="container">
-        Loading...
-    </div>
+    <div id="container">Loading...</div>
 
     <script>
-        const words = ["カレー", "犬"]
-        async function getList() {
-            const articlesList = await Promise.all(
-                words.map(async w => querySearch({
-                    word: encodeURI(w),
-                    lang: "jpn"
-                }))
-            )
-            const articles = mixArticlesList(articlesList)
-            const shuffle = shuffleArticles(articles)
-            localStorage.setItem('Articles', JSON.stringify(shuffle.slice(0, 10)))
-            goToNextPage()
-        }
+      // const words = ['カレー', '犬'];
+      function inputWord() {
+        return window.prompt('Enter query word like: dog,cat,bat,hut');
+      }
 
-        function goToNextPage() {
-            const a = document.createElement('a')
-            a.setAttribute('href', 'swipe/index.html')
-            a.click()
-        }
-        getList()
+      const inputs = inputWord();
+      const words = createQueryWords(createWordList(inputs));
+      console.debug(words);
+
+      async function getList() {
+        const articlesList = await Promise.all(
+          words.map(async (w) =>
+            querySearch({
+              word: encodeURI(w),
+              lang: 'jpn',
+            })
+          )
+        );
+        const articles = mixArticlesList(articlesList);
+        console.debug(articles);
+        const shuffle = shuffleArticles(articles);
+        localStorage.setItem('Articles', JSON.stringify(shuffle.slice(0, 10)));
+        goToNextPage();
+      }
+
+      function goToNextPage() {
+        const a = document.createElement('a');
+        a.setAttribute('href', 'swipe/index.html');
+        a.click();
+      }
+      getList();
     </script>
-</body>
-
+  </body>
 </html>
