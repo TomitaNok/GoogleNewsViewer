@@ -1,4 +1,3 @@
-
 // function adjustImageSize(id) {
 //     const doc = document.getElementById(id)
 //     doc.onload = (e) => {
@@ -48,16 +47,16 @@
 //         t = setTimeout(() => {
 //             doc.style.left = `${FIRST_TARGET_X_POSITION + event.x - startPageX}px`
 //         }, 10)
-        // const diff = event.movementX - startPageX
-        // console.debug({ movementX: event.x })
-        
-        // t = setTimeout(() => {
-        //     const diff = event.movementX - startPageX
-        //     console.debug('diff', diff)
-        //     console.debug('startPageX', startPageX)
-        //     startPageX = null
-        //     doc.style.left = FIRST_TARGET_X_POSITION
-        // }, 500)
+// const diff = event.movementX - startPageX
+// console.debug({ movementX: event.x })
+
+// t = setTimeout(() => {
+//     const diff = event.movementX - startPageX
+//     console.debug('diff', diff)
+//     console.debug('startPageX', startPageX)
+//     startPageX = null
+//     doc.style.left = FIRST_TARGET_X_POSITION
+// }, 500)
 //     })
 // }
 // drag開始地点(s地点)の取得(x座標)
@@ -72,7 +71,7 @@
 
 function listen() {
 
-    const doc = document.getElementById('target')
+    const doc = document.getElementsByClassName('center')
     const { x } = doc.getBoundingClientRect()
 
     const FIRST_X_INDEX = x

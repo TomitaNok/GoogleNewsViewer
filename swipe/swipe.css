@@ -1,4 +1,4 @@
-.dog1{
+.dog1 {
     object-fit: cover;
     display: flex;
     justify-content: center;
@@ -9,15 +9,19 @@
     position: absolute;
     top: 50;
     left: 50;
+    width: 300px;
+    height: auto;
 }
+
 .center {
     /*親要素*/
     height: 100vh;
     display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-  .center p {
+    justify-content: center;
+    align-items: center;
+}
+
+.center p {
     /*上下センタリングする*/
     line-height: 150px;
-  }
+}
