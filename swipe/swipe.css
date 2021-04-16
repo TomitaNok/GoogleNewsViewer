@@ -7,6 +7,17 @@
     border-radius: 50%;
     cursor: pointer;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50;
+    left: 50;
 }
+.center {
+    /*親要素*/
+    height: 100vh;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .center p {
+    /*上下センタリングする*/
+    line-height: 150px;
+  }

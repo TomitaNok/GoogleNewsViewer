@@ -9,12 +9,29 @@
 </head>
 
 <body>
-    <div class="dog1">
-        <img src="dog1.jpg"/>
+    <div id="container">
+        <div id="target" draggable="false">
+            <img dragable="false" id="target_image" src="../hotdog.jpg" />
+        </div>
     </div>
-    <div class="hotdog">
-        <img src="hotdog.jpg"/>
-    </div>
+    <script>
+        adjustImageSize('target_image')
+        bindEventsTarget('target')
+    </script>
+    <style>
+        #container{
+            width: 100%;
+            height: 100%;
+        }
+        #target {
+            flex-direction: column;
+            position: absolute;
+            left: 50px;
+            top: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </body>
 
 </html>
