@@ -1,0 +1,64 @@
+/* トップ画面 */
+.toppage{
+position: relative;
+width: 1440px;
+height: 900px;
+
+background: #FFFFFF;
+}
+
+/* tinder 2 */
+.tinder2{
+position: absolute;
+width: 500px;
+height: 500px;
+left: 470px;
+top: 32px;
+
+background: url(tinder.png);
+}
+
+/* Group 7 */
+.Group7{ 
+position: absolute;
+width: 570px;
+height: 103px;
+left: 435px;
+top: 571px;
+}
+
+
+/* Rectangle 8 */
+.Rectangle8{
+position: absolute;
+width: 570px;
+height: 103px;
+left: 435px;
+top: 571px;
+
+background: #FFFFFF;
+border: 5px solid #000000;
+box-sizing: border-box;
+border-radius: 20px;
+}
+
+
+/* (例)ラーメン、いぶりがっこ */
+.search{
+position: absolute;
+width: 464px;
+height: 102px;
+left: 447px;
+top: 571px;
+
+font-family: Noto Sans JP;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 52px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: rgba(0, 0, 0, 0.4);
+}
