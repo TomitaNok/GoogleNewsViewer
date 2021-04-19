@@ -1,4 +1,44 @@
 <html>
-This is list page!!
+  <body>
+    <link rel="stylesheet" href="list.css" />
+    <div id="nice_grid"></div>
+    <script>
+      function getNiceList() {
+        const articlesString = localStorage.getItem('NiceArticles');
+        const articles = JSON.parse(articlesString);
+        console.debug(articles);
+        return articles;
+      }
 
+      function createNiceElement(nice_article) {
+        const grid_child = document.createElement('div');
+        grid_child.className = 'grid_child';
+
+        const news_link = document.createElement('a');
+        news_link.textContent = nice_article.title;
+        news_link.href = nice_article.link;
+        news_link.className = 'link';
+
+        const image = document.createElement('img');
+        image.className = 'img';
+        image.src = nice_article.imageUrl;
+
+        grid_child.appendChild(news_link);
+        grid_child.appendChild(image);
+        console.log(grid_child);
+        return grid_child;
+      }
+
+      const nice_list = getNiceList();
+
+      const nice_grid = document.getElementById('nice_grid');
+
+      nice_list.forEach((nice_article) => {
+        const child = createNiceElement(nice_article);
+        console.log(child);
+        // nice_grid.insertAdjacentElement('beforeBegin', child);
+        nice_grid.appendChild(child);
+      });
+    </script>
+  </body>
 </html>

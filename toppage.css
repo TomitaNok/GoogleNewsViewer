@@ -1,64 +1,62 @@
 /* トップ画面 */
 
 .toppage {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: #FFFFFF;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
 }
-
 
 /* tinder 2 */
 
 .tinder2 {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    left: 380px;
-    top: 32px;
-    background: url(tinder.png);
-    background-size: contain
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 380px;
+  top: 32px;
+  background: url(rednit.png);
+  background-size: contain;
 }
-
 
 /* Rectangle 8 */
 
 .Rectangle8 {
-    position: absolute;
-    width: 350px;
-    height: 73px;
-    left: 405px;
-    top: 531px;
-    background: #FFFFFF;
-    border: 5px solid #000000;
-    box-sizing: border-box;
-    border-radius: 20px;
+  position: absolute;
+  width: 350px;
+  height: 73px;
+  left: 405px;
+  top: 531px;
+  background: #ffffff;
+  border: 5px solid #000000;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
 
 .start-button {
-    position: absolute;
-    width: 100px;
-    height: 63px;
-    left: 770px;
-    top: 536px;
-    border-radius: 10px;
+  position: absolute;
+  width: 100px;
+  height: 63px;
+  left: 770px;
+  top: 536px;
+  border-radius: 10px;
 }
 
 .wordmember {
-    font-family: "ＭＳ ゴシック", sans-serif;
-    white-space: nowrap;
-    animation: fadeIn 6s ease 0s 1 normal;
-    animation-iteration-count: infinite;
+  font-family: 'ＭＳ ゴシック', sans-serif;
+  white-space: nowrap;
+  animation: fadeIn 6s ease 0s 1 normal;
+  animation-iteration-count: infinite;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0
-    }
-    50% {
-        opacity: 1
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

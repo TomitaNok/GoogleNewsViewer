@@ -1,87 +1,72 @@
 <html>
-
-<head>
+  <head>
     <script src="swipe.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <button onclick="clicked(false)">nope</button>
     <button onclick="clicked(true)">nice</button>
     <div>
-        <div id="display"></div>
-        <img id="image_place" width="500px" height=auto />
+      <div id="display"></div>
+      <img id="image_place" width="500px" height="auto" />
     </div>
     <script type="text/javascript">
-        // img要素を取得する
-        var img = document.getElementById("image_place");
-        // 表示する画像番号
-        var idx = 1;
+      // img要素を取得する
+      var img = document.getElementById('image_place');
+      // 表示する画像番号
+      var idx = 1;
 
-        // 画像を切り替える関数
-        count = 0
+      // 画像を切り替える関数
+      count = 0;
 
+      function getList() {
+        const articlesString = localStorage.getItem('Articles');
+        const articles = JSON.parse(articlesString);
+        return articles;
+      }
+      const list = getList();
+      console.debug({
+        list,
+      });
 
-        function getList() {
-            const articlesString = localStorage.getItem('Articles')
-            const articles = JSON.parse(articlesString)
-            return articles
+      const NICE_LIST = [];
+
+      const display = document.getElementById('display');
+      display.innerText = list[count].title;
+      getImageUrl(list[count].title).then((v) => {
+        list[count].imageUrl = v;
+        img.src = list[count].imageUrl;
+      });
+
+      function goToListPage() {
+        localStorage.setItem('NiceArticles', JSON.stringify(NICE_LIST));
+        const a = document.createElement('a');
+        a.setAttribute('href', '../list/index.html');
+        a.click();
+      }
+
+      function clicked(nice) {
+        if (nice) {
+          NICE_LIST.push(list[count]);
         }
-        const list = getList()
-        console.debug({
-            list
-        })
-
-        const NICE_LIST = []
-
-        const display = document.getElementById('display')
-        display.innerText = list[count].title
-        getImageUrl(list[count].title).then(v => {
-            list[count].imageUrl = v
-            img.src = list[count].imageUrl;
-        })
-
-        function goToListPage() {
-            localStorage.setItem('NiceArticles', JSON.stringify(NICE_LIST))
-            const a = document.createElement('a')
-            a.setAttribute('href', '../list/index.html')
-            a.click()
+        count++;
+        idx++;
+        if (count >= list.length) {
+          goToListPage();
+          return;
         }
-
-        function clicked(nice) {
-            if (nice) {
-                NICE_LIST.push(list[count])
-            }
-            count++;
-            idx++;
-            if (count >= list.length) {
-                goToListPage()
-                return
-            }
-            if (idx > 4) {
-                idx = 1;
-            }
-            const display = document.getElementById('display')
-            display.innerText = list[count].title
-            getImageUrl(list[count].title).then(v => {
-                    list[count].imageUrl = v
-                    img.src = list[count].imageUrl;
-                })
-                //     img.src = "hotdog" + idx + ".jpg";
+        if (idx > 4) {
+          idx = 1;
         }
+        const display = document.getElementById('display');
+        display.innerText = list[count].title;
 
-        // function clicked() {
-        //     idx++;
-        //     if (idx > 4) {
-        //         idx = 1;
-        //     }
-
-        //     // img要素のsrcに画像ファイル名を設定する
-        //     img.src = "hotdog" + idx + ".jpg";
-        // }
-        function nice() {
-
-        }
+        getImageUrl(list[count].title).then((v) => {
+          list[count].imageUrl = v;
+          img.src = list[count].imageUrl;
+        });
+      }
+      // function nice() {}
     </script>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,26 @@
+.img {
+  width: 100%;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.grid_child {
+  display: grid;
+  padding: 0.5em;
+  margin: 0.5em;
+  grid-template-columns: 1fr 2fr;
+  border: 1px solid #313131;
+  border-radius: 1em;
+}
+
+#nice_grid {
+  width: 80%;
+  grid-template-columns: 40%, 40%;
+}
