@@ -5,7 +5,7 @@
     <button onclick="clicked()">nice</button>
     <div>
         <div id="display"></div>
-        <img id="image_place" width="500px" height=auto/>
+        <img id="image_place" src="hotdog1.jpg" width="500px" height=auto/>
     </div>
     <script type="text/javascript">
         // img要素を取得する
@@ -37,8 +37,7 @@
             }
             const display = document.getElementById('display')
             display.innerText = list[count].title
-            img.src = list[count].imageUrl;
-            //     img.src = "hotdog" + idx + ".jpg";
+            img.src = "hotdog" + idx + ".jpg";
         }
 
         // function clicked() {
