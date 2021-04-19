@@ -1,5 +1,9 @@
 <html>
 
+<head>
+    <script src="swipe.js"></script>
+</head>
+
 <body>
     <button onclick="clicked(false)">nope</button>
     <button onclick="clicked(true)">nice</button>
@@ -31,7 +35,10 @@
 
         const display = document.getElementById('display')
         display.innerText = list[count].title
-        img.src = list[count].imageUrl;
+        getImageUrl(list[count].title).then(v => {
+            list[count].imageUrl = v
+            img.src = list[count].imageUrl;
+        })
 
         function goToListPage() {
             localStorage.setItem('NiceArticles', JSON.stringify(NICE_LIST))
@@ -55,8 +62,11 @@
             }
             const display = document.getElementById('display')
             display.innerText = list[count].title
-            img.src = list[count].imageUrl;
-            //     img.src = "hotdog" + idx + ".jpg";
+            getImageUrl(list[count].title).then(v => {
+                    list[count].imageUrl = v
+                    img.src = list[count].imageUrl;
+                })
+                //     img.src = "hotdog" + idx + ".jpg";
         }
 
         // function clicked() {

@@ -23,3 +23,10 @@ function listen() {
         doc.style.left = FIRST_X_INDEX + (x - startX)
     })
 }
+
+// 画像のURLを返す
+async function getImageUrl(word) {
+    return fetch('http://localhost:4000/search/image/' + word)
+        .then((res) => res.json())
+        .then((json) => json.imageUrl);
+}

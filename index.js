@@ -57,12 +57,6 @@ async function querySearch(word) {
     }));
 }
 
-// 画像のURLを返す
-async function getImageUrl(word) {
-    return await fetch('http://localhost:4000/search/image/' + word)
-        .then((res) => res.json())
-        .then((imageUrl) => imageUrl.imageUrl);
-}
 
 // それぞれの単語についての記事配列を一つの配列にする。
 // 一つの配列を返す。{ title:string , link:string } []
