@@ -47,11 +47,21 @@ function createQueryWords(wordList, num = 3) {
  */
 async function querySearch(word) {
   const items = await requestQueryNewsList(word);
+  const imageUrl = await getImageUrl(word);
   return items.map((item) => ({
     title: item.title,
     link: item.link,
-    imageUrl: null,
+    // imageUrl: null,
+    // imageUrl: fetch('http://localhost:4000/search/image/' + word),
+    imageUrl: imageUrl,
   }));
+}
+
+// 画像のURLを返す
+async function getImageUrl(word) {
+  return await fetch('http://localhost:4000/search/image/' + word)
+    .then((res) => res.json())
+    .then((imageUrl) => imageUrl.imageUrl);
 }
 
 // それぞれの単語についての記事配列を一つの配列にする。
