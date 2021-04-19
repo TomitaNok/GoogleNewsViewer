@@ -1,11 +1,11 @@
 <html>
 
 <body>
-    <button onclick="clicked()">nope</button>
-    <button onclick="clicked()">nice</button>
+    <button onclick="clicked(false)">nope</button>
+    <button onclick="clicked(true)">nice</button>
     <div>
         <div id="display"></div>
-        <img id="image_place" width="500px" height=auto/>
+        <img id="image_place" width="500px" height=auto />
     </div>
     <script type="text/javascript">
         // img要素を取得する
@@ -15,6 +15,7 @@
 
         // 画像を切り替える関数
         count = 0
+
 
         function getList() {
             const articlesString = localStorage.getItem('Articles')
@@ -26,10 +27,27 @@
             list
         })
 
-        function clicked() {
+        const NICE_LIST = []
+
+        const display = document.getElementById('display')
+        display.innerText = list[count].title
+        img.src = list[count].imageUrl;
+
+        function goToListPage() {
+            localStorage.setItem('NiceArticles', JSON.stringify(NICE_LIST))
+            const a = document.createElement('a')
+            a.setAttribute('href', '../list/index.html')
+            a.click()
+        }
+
+        function clicked(nice) {
+            if (nice) {
+                NICE_LIST.push(list[count])
+            }
             count++;
             idx++;
             if (count >= list.length) {
+                goToListPage()
                 return
             }
             if (idx > 4) {
@@ -50,6 +68,9 @@
         //     // img要素のsrcに画像ファイル名を設定する
         //     img.src = "hotdog" + idx + ".jpg";
         // }
+        function nice() {
+
+        }
     </script>
 </body>
 
